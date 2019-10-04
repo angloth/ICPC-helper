@@ -37,9 +37,13 @@ def add_big_text(pdf, text):
     add_text(pdf, text, text_font, big_text_size, big_text_padding)
 
 
+def replace_tabs(code):
+    return code.replace('\t', '    ')
+
+
 def add_code_content(pdf, code_path):
     code_file = open(code_path)
-    code_content = code_file.read()
+    code_content = replace_tabs(code_file.read())
     add_text(pdf, code_content, code_font, code_size, code_padding)
 
 
